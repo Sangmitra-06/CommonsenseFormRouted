@@ -121,3 +121,17 @@ export const checkProlificIdExists = async (prolificId: string) => {
     return false;
   }
 };
+
+// NEW: Add this function for region quota checking
+export const checkRegionAvailability = async (region: string) => {
+  try {
+    console.log('Checking region availability:', region);
+    const response = await api.post('/api/responses/check-region', {
+      region: region.toLowerCase()
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Failed to check region availability:', error);
+    throw error;
+  }
+};

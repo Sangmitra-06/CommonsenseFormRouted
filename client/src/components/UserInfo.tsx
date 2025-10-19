@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { UserInfo, UserInfoErrors, REGIONS } from '../types/index.ts';
-import { checkProlificIdExists } from '../services/api.ts';
+import { checkProlificIdExists, checkRegionAvailability as checkRegionAPI } from '../services/api.ts';
 import RegionQuotaFullPage from './RegionQutaFullPage.tsx'; // Add this import
 import axios from 'axios';
 
@@ -123,31 +123,28 @@ export default function UserInfoForm({ onSubmit, isLoading }: UserInfoProps) {
   };
 
   const checkRegionAvailability = async (selectedRegion: string): Promise<boolean> => {
-    setIsCheckingRegion(true);
-    setRegionError('');
+  setIsCheckingRegion(true);
+  setRegionError('');
 
-    try {
-      const response = await axios.post('/api/responses/check-region', {
-        region: selectedRegion.toLowerCase()
-      });
+  try {
+    const response = await checkRegionAPI(selectedRegion); // Use the API function
 
-      if (response.data.available) {
-        sessionStorage.setItem('userRegion', selectedRegion);
-        sessionStorage.setItem('regionSlotReserved', 'true');
-        return true;
-      } else {
-        // Instead of redirecting, just show the quota full page
-        setShowQuotaFull(true);
-        return false;
-      }
-    } catch (error) {
-      console.error('Error checking region availability:', error);
-      setRegionError('An error occurred checking region availability. Please try again.');
+    if (response.available) {
+      sessionStorage.setItem('userRegion', selectedRegion);
+      sessionStorage.setItem('regionSlotReserved', 'true');
+      return true;
+    } else {
+      setShowQuotaFull(true);
       return false;
-    } finally {
-      setIsCheckingRegion(false);
     }
-  };
+  } catch (error) {
+    console.error('Error checking region availability:', error);
+    setRegionError('An error occurred checking region availability. Please try again.');
+    return false;
+  } finally {
+    setIsCheckingRegion(false);
+  }
+};
 
   // Modify handleSubmit to include region check
   const handleSubmit = async (e: React.FormEvent) => {
