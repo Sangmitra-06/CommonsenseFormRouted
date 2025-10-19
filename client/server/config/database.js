@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
   try {
     // Remove the deprecated options
-    const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/cultural-survey');
+    const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/cultural-survey-routing');
 
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {

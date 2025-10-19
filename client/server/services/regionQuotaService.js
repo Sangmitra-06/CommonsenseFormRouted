@@ -3,7 +3,7 @@ const RegionQuota = require('../models/RegionQuota');
 // Initialize quotas (run once)
 async function initializeQuotas() {
   const regions = ['north', 'south', 'east', 'west', 'central'];
-  const maxQuota = 10; // Set quota limit to 10 per region
+  const maxQuota = 1; // Set quota limit to 10 per region
   
   for (const region of regions) {
     await RegionQuota.findOneAndUpdate(

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { UserInfo, UserInfoErrors, REGIONS } from '../types/index.ts';
 import { checkProlificIdExists } from '../services/api.ts';
+import RegionQuotaFullPage from './RegionQutaFullPage.tsx'; // Add this import
 import axios from 'axios';
 
 interface UserInfoProps {
@@ -21,6 +22,8 @@ export default function UserInfoForm({ onSubmit, isLoading }: UserInfoProps) {
   const [isCheckingProlificId, setIsCheckingProlificId] = useState(false);
   const [prolificIdExists, setProlificIdExists] = useState(false);
   const [prolificIdCheckComplete, setProlificIdCheckComplete] = useState(false);
+
+  const [showQuotaFull, setShowQuotaFull] = useState(false);
 
   // Add new states for region checking
   const [isCheckingRegion, setIsCheckingRegion] = useState(false);
@@ -133,11 +136,13 @@ export default function UserInfoForm({ onSubmit, isLoading }: UserInfoProps) {
         sessionStorage.setItem('regionSlotReserved', 'true');
         return true;
       } else {
-        setRegionError('Sorry, the quota for your region is full. Thank you for your interest.');
+        // Instead of redirecting, just show the quota full page
+        setShowQuotaFull(true);
         return false;
       }
     } catch (error) {
-      setRegionError('An error occurred checking region availability.');
+      console.error('Error checking region availability:', error);
+      setRegionError('An error occurred checking region availability. Please try again.');
       return false;
     } finally {
       setIsCheckingRegion(false);
@@ -172,6 +177,24 @@ export default function UserInfoForm({ onSubmit, isLoading }: UserInfoProps) {
                      !prolificIdExists &&
                      prolificIdCheckComplete &&
                      !regionError; // Must have completed the check
+  
+                     
+  const handleProlificIdChange = (id: string) => {
+  setFormData(prev => ({ ...prev, prolificId: id }));
+
+  // Clear any existing error when user starts typing again
+  if (errors.prolificId) {
+    setErrors(prev => ({ ...prev, prolificId: undefined }));
+  }
+
+  // Reset checking states
+  setProlificIdCheckComplete(false);
+  setProlificIdExists(false);
+};
+
+if (showQuotaFull) {
+    return <RegionQuotaFullPage />;
+  }
 
   return (
     <div className="min-h-screen bg-custom-cream flex items-center justify-center p-4">
