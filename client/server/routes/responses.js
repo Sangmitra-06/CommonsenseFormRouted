@@ -7,6 +7,12 @@ const regionQuotaService = require('../services/regionQuotaService');
 
 const router = express.Router();
 
+function capitalizeRegion(region) {
+  const lower = region.toLowerCase();
+  return lower.charAt(0).toUpperCase() + lower.slice(1);
+}
+
+
 // Save response
 router.post('/', [
   body('sessionId').notEmpty().withMessage('Session ID is required'),
@@ -163,27 +169,117 @@ router.post('/batch', [
   }
 });
 
-// Check region availability endpoint
+// Then replace your entire /check-region endpoint with this:
 router.post('/check-region', async (req, res) => {
   try {
-    const { region } = req.body;
-    const isAvailable = await regionQuotaService.checkRegionAvailability(region);
+    const { region, prolificId } = req.body;
+    
+    console.log('=== CHECK REGION START ===');
+    console.log('Region:', region);
+    console.log('Prolific ID:', prolificId);
+    
+    if (!region) {
+      return res.status(400).json({ 
+        available: false,
+        error: 'Region is required' 
+      });
+    }
+
+    if (!prolificId) {
+      return res.status(400).json({ 
+        available: false,
+        error: 'Prolific ID is required' 
+      });
+    }
+
+    const normalizedRegion = region.toLowerCase();
+    const capitalizedRegion = capitalizeRegion(region);
+    
+    // Check if Prolific ID already exists
+    console.log('Checking for existing user...');
+    const existingUser = await User.findOne({ 'userInfo.prolificId': prolificId });
+    
+    if (existingUser) {
+      console.log(`Found existing user with status: ${existingUser.status}`);
+      return res.json({ 
+        available: false,
+        message: 'This Prolific ID has already been used'
+      });
+    }
+    
+    console.log('No existing user found, checking region availability...');
+
+    // Check if region slots are available
+    const isAvailable = await regionQuotaService.checkRegionAvailability(normalizedRegion);
+    console.log(`Region ${normalizedRegion} available:`, isAvailable);
     
     if (isAvailable) {
-      // Try to increment (atomic operation)
-      const success = await regionQuotaService.incrementRegionCount(region);
-      res.json({ 
-        available: success,
-        message: success ? 'Slot reserved' : 'Region quota full'
-      });
+      // Try to atomically increment
+      const success = await regionQuotaService.incrementRegionCount(normalizedRegion);
+      
+      if (success) {
+        console.log(`✅ Slot reserved for ${normalizedRegion}`);
+        return res.json({ 
+          available: true,
+          message: 'Slot reserved'
+        });
+      } else {
+        console.log('Creating rejected user record (race condition)...');
+        
+        // Save rejected user record
+        const rejectedUser = await User.create({
+          sessionId: `rejected_${prolificId}_${Date.now()}`,
+          userInfo: {
+            prolificId,
+            region: capitalizedRegion, // North, South, East, West, Central
+            age: null,
+            yearsInRegion: 0
+          },
+          status: 'quota_full',
+          rejectionReason: 'Region quota full (race condition)'
+        });
+        
+        console.log('Rejected user created:', rejectedUser._id);
+        
+        return res.json({ 
+          available: false,
+          message: 'Region quota full'
+        });
+      }
     } else {
-      res.json({ 
+      console.log('Creating rejected user record (quota full)...');
+      
+      // Save rejected user record
+      const rejectedUser = await User.create({
+        sessionId: `rejected_${prolificId}_${Date.now()}`,
+        userInfo: {
+          prolificId,
+          region: capitalizedRegion, // North, South, East, West, Central
+          age: null,
+          yearsInRegion: 0
+        },
+        status: 'quota_full',
+        rejectionReason: 'Region quota full'
+      });
+      
+      console.log('Rejected user created:', rejectedUser._id);
+      
+      return res.json({ 
         available: false,
         message: 'Region quota full'
       });
     }
   } catch (error) {
-    res.status(500).json({ error: 'Server error' });
+    console.error('=== ERROR in /check-region ===');
+    console.error('Error name:', error.name);
+    console.error('Error message:', error.message);
+    console.error('Full error:', error);
+    
+    return res.status(500).json({ 
+      available: false,
+      error: 'Server error checking region availability',
+      details: process.env.NODE_ENV === 'development' ? error.message : undefined
+    });
   }
 });
 

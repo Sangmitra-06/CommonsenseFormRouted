@@ -3,10 +3,8 @@ import { UserInfo, QuestionResponse } from '../types/index.ts';
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
-
 console.log('Environment variable REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
 console.log('API Base URL being used:', API_BASE_URL);
-
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -65,7 +63,7 @@ api.interceptors.response.use(
 export const createUser = async (userInfo: UserInfo) => {
   try {
     console.log('Creating user with info:', userInfo);
-    const response = await api.post('/api/users/create', userInfo);  // Correct endpoint
+    const response = await api.post('/api/users/create', userInfo);
     return response.data;
   } catch (error) {
     console.error('Failed to create user:', error);
@@ -108,26 +106,24 @@ export const checkHealth = async () => {
   return response.data;
 };
 
-// Add this new function to your existing api.ts file
 export const checkProlificIdExists = async (prolificId: string) => {
   try {
     console.log('Checking if Prolific ID exists:', prolificId);
     const response = await api.get(`/api/users/check-prolific-id/${prolificId}`);
-    return response.data.exists; // Returns boolean
+    return response.data.exists;
   } catch (error) {
     console.error('Failed to check Prolific ID:', error);
-    // If there's an error (like network issues), we'll assume it doesn't exist
-    // so users aren't blocked unnecessarily
     return false;
   }
 };
 
 // NEW: Add this function for region quota checking
-export const checkRegionAvailability = async (region: string) => {
+export const checkRegionAvailability = async (region: string, prolificId: string) => {
   try {
-    console.log('Checking region availability:', region);
+    console.log('Checking region availability:', region, 'for Prolific ID:', prolificId);
     const response = await api.post('/api/responses/check-region', {
-      region: region.toLowerCase()
+      region: region.toLowerCase(),
+      prolificId: prolificId
     });
     return response.data;
   } catch (error) {

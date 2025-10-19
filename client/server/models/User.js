@@ -10,15 +10,15 @@ const userSchema = new mongoose.Schema({
   },
   userInfo: {
     prolificId: {
-    type: String,
-    required: true,
-    validate: {
-      validator: function(v) {
-        return /^[a-zA-Z0-9]{24}$/.test(v);
-      },
-      message: 'Prolific ID must be exactly 24 alphanumeric characters'
-    }
-  },
+      type: String,
+      required: true,
+      validate: {
+        validator: function(v) {
+          return /^[a-zA-Z0-9]{24}$/.test(v);
+        },
+        message: 'Prolific ID must be exactly 24 alphanumeric characters'
+      }
+    },
     region: {
       type: String,
       required: true,
@@ -26,15 +26,26 @@ const userSchema = new mongoose.Schema({
     },
     age: {
       type: Number,
-      required: true,
-      min: 1,
+      required: false, // Changed to false for rejected users
+      min: 0,
       max: 120
     },
     yearsInRegion: {
       type: Number,
-      required: true,
+      required: false, // Changed to false for rejected users
       min: 0
     }
+  },
+  // NEW: Add status field
+  status: {
+    type: String,
+    enum: ['active', 'completed', 'quota_full', 'expired', 'attention_failed'],
+    default: 'active'
+  },
+  // NEW: Add rejection reason
+  rejectionReason: {
+    type: String,
+    default: null
   },
   progress: {
     currentCategory: { type: Number, default: 0 },
@@ -52,20 +63,15 @@ const userSchema = new mongoose.Schema({
     attentionChecksPassed: { type: Number, default: 0 },
     attentionChecksFailed: { type: Number, default: 0 }
   },
-   completionReason: {
-
+  completionReason: {
     type: String,
-
     enum: ['completed', 'attention_check_failed', 'time_expired'],
-
     default: null
-
   },
   isCompleted: {
     type: Boolean,
     default: false
   },
-  // NEW: Add this field
   completedAt: {
     type: Date,
     default: null
@@ -74,7 +80,6 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  // NEW: Add timing fields
   timing: {
     startedAt: {
       type: Date,
@@ -101,12 +106,14 @@ const userSchema = new mongoose.Schema({
 userSchema.index({ sessionId: 1, lastActiveAt: -1 });
 userSchema.index({ 'userInfo.prolificId': 1 }, { unique: true });
 
-// Update lastActiveAt and ensure totalQuestions is current on save
+// Update lastActiveAt on save
 userSchema.pre('save', function(next) {
   this.lastActiveAt = new Date();
   
-  // Always update totalQuestions to current value
-  this.progress.totalQuestions = questionsService.getTotalQuestions();
+  // Only update totalQuestions if user is active (not rejected)
+  if (this.status === 'active') {
+    this.progress.totalQuestions = questionsService.getTotalQuestions();
+  }
   
   next();
 });
@@ -115,4 +122,5 @@ userSchema.pre('save', function(next) {
 userSchema.statics.getCurrentTotalQuestions = function() {
   return questionsService.getTotalQuestions();
 };
+
 module.exports = mongoose.model('User', userSchema);

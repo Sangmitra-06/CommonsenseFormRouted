@@ -127,13 +127,15 @@ export default function UserInfoForm({ onSubmit, isLoading }: UserInfoProps) {
   setRegionError('');
 
   try {
-    const response = await checkRegionAPI(selectedRegion); // Use the API function
+    // Pass both region AND prolificId
+    const response = await checkRegionAPI(selectedRegion, formData.prolificId);
 
     if (response.available) {
       sessionStorage.setItem('userRegion', selectedRegion);
       sessionStorage.setItem('regionSlotReserved', 'true');
       return true;
     } else {
+      // Show quota full page
       setShowQuotaFull(true);
       return false;
     }
