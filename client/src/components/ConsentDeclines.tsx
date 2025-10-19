@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 export default function ConsentDeclined() {
-  const prolificCode = 'CULT-CONSENT-DECLINED-2024';
+  const prolificCode = 'CON4XCZ3';
 
   // Prevent refresh/back button
   useEffect(() => {

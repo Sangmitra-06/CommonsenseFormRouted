@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 export default function RegionQuotaFullPage() {
-  const [prolificCode] = useState('C4EGKOTX'); // Return code for quota full
+  const [prolificCode] = useState('CN1FIN8D'); // Return code for quota full
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = () => {
