@@ -3,11 +3,11 @@ const RegionQuota = require('../models/RegionQuota');
 // Initialize quotas with INDIVIDUAL limits per region
 async function initializeQuotas() {
   const regionQuotas = {
-    'north': 10,    // North India: 10 participants
-    'south': 5,    // South India: 15 participants
-    'east': 8,     // East India: 12 participants
-    'west': 8,      // West India: 8 participants
-    'central': 11   // Central India: 10 participants
+    'north': 0,    // North India: 10 participants
+    'south': 0,    // South India: 15 participants
+    'east': 0,     // East India: 12 participants
+    'west': 0,      // West India: 8 participants
+    'central': 5   // Central India: 10 participants
   };
   
   for (const [region, maxQuota] of Object.entries(regionQuotas)) {
