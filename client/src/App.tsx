@@ -8,17 +8,22 @@ import UserInfo from './components/UserInfo.tsx';
 import QuestionForm from './components/QuestionForm.tsx';
 import CompletionPage from './components/CompletionPage.tsx';
 import SurveyExpired from './components/SurveyExpired.tsx';
+import AIWarningModal from './components/AIWarningModal.tsx'; // ADD THIS IMPORT
 import './App.css';
 
 type AppStage = 'consent' | 'declined' | 'welcome' | 'structure' | 'userInfo' | 'questions' | 'completed' | 'expired' | 'attentionFailed';
 
 function AppContent() {
   const { state, createUserSession, loadUserSession } = useForm();
-  const [currentStage, setCurrentStage] = useState<AppStage>('consent'); // Start with consent
+  const [currentStage, setCurrentStage] = useState<AppStage>('consent');
   const [isInitializing, setIsInitializing] = useState(true);
   const [hasCheckedSession, setHasCheckedSession] = useState(false);
   const [hasExistingSession, setHasExistingSession] = useState(false);
   const [existingSessionId, setExistingSessionId] = useState<string | null>(null);
+  
+  // ADD THESE TWO NEW STATE VARIABLES
+  const [showAIWarning, setShowAIWarning] = useState(false);
+  const [pendingUserInfo, setPendingUserInfo] = useState<any>(null);
 
   // NEW: Check for attention check failure
   useEffect(() => {
@@ -80,7 +85,7 @@ function AppContent() {
     };
   }, [state.sessionId, state.isCompleted, state.surveyExpired, state.attentionCheckFailed]);
 
-  // Update stage based on form state
+  // UPDATE THIS EFFECT - Add showAIWarning to the dependency array
   useEffect(() => {
     if (!hasCheckedSession) return;
     
@@ -90,10 +95,10 @@ function AppContent() {
       setCurrentStage('expired');
     } else if (state.isCompleted) {
       setCurrentStage('completed');
-    } else if (state.sessionId && state.userInfo) {
+    } else if (state.sessionId && state.userInfo && !showAIWarning) {
       setCurrentStage('questions');
     }
-  }, [state.attentionCheckFailed, state.surveyExpired, state.isCompleted, state.sessionId, state.userInfo, hasCheckedSession]);
+  }, [state.attentionCheckFailed, state.surveyExpired, state.isCompleted, state.sessionId, state.userInfo, hasCheckedSession, showAIWarning]);
 
   // Consent handlers
   const handleConsent = () => {
@@ -136,9 +141,19 @@ function AppContent() {
     }
   };
 
+  // REPLACE THIS FUNCTION
   const handleUserInfoSubmit = async (userInfo: any) => {
+    // Store userInfo and show AI warning modal
+    setPendingUserInfo(userInfo);
+    setShowAIWarning(true);
+  };
+
+  // ADD THIS NEW FUNCTION
+  const handleAIWarningAccept = async () => {
+    // Hide modal and create session
+    setShowAIWarning(false);
     try {
-      await createUserSession(userInfo);
+      await createUserSession(pendingUserInfo);
       setCurrentStage('questions');
     } catch (error) {
       console.error('Failed to create user session:', error);
@@ -210,7 +225,13 @@ function AppContent() {
         />
       );
     case 'userInfo':
-      return <UserInfo onSubmit={handleUserInfoSubmit} isLoading={state.isLoading} />;
+      // UPDATE THIS CASE - Add the modal conditionally
+      return (
+        <>
+          <UserInfo onSubmit={handleUserInfoSubmit} isLoading={state.isLoading} />
+          {showAIWarning && <AIWarningModal onAccept={handleAIWarningAccept} />}
+        </>
+      );
     case 'questions':
       return <QuestionForm />;
     case 'completed':
