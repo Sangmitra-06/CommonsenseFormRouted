@@ -4,10 +4,10 @@ const RegionQuota = require('../models/RegionQuota');
 async function initializeQuotas() {
   const regionQuotas = {
     'north': 50,    // North India: 10 participants
-    'south': 0,    // South India: 15 participants
-    'east': 0,     // East India: 12 participants
-    'west': 0,      // West India: 8 participants
-    'central': 0   // Central India: 10 participants
+    'south': 50,    // South India: 15 participants
+    'east': 50,     // East India: 12 participants
+    'west': 50,      // West India: 8 participants
+    'central': 50   // Central India: 10 participants
   };
   
   for (const [region, maxQuota] of Object.entries(regionQuotas)) {
