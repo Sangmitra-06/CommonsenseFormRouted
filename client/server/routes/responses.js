@@ -169,7 +169,7 @@ router.post('/batch', [
   }
 });
 
-// Then replace your entire /check-region endpoint with this:
+// Check region availability - UPDATED: Removed Prolific ID duplicate check
 router.post('/check-region', async (req, res) => {
   try {
     const { region, prolificId } = req.body;
@@ -195,19 +195,8 @@ router.post('/check-region', async (req, res) => {
     const normalizedRegion = region.toLowerCase();
     const capitalizedRegion = capitalizeRegion(region);
     
-    // Check if Prolific ID already exists
-    console.log('Checking for existing user...');
-    const existingUser = await User.findOne({ 'userInfo.prolificId': prolificId });
-    
-    if (existingUser) {
-      console.log(`Found existing user with status: ${existingUser.status}`);
-      return res.json({ 
-        available: false,
-        message: 'This Prolific ID has already been used'
-      });
-    }
-    
-    console.log('No existing user found, checking region availability...');
+    // REMOVED: Prolific ID duplicate check
+    console.log('Checking region availability...');
 
     // Check if region slots are available
     const isAvailable = await regionQuotaService.checkRegionAvailability(normalizedRegion);
@@ -224,46 +213,14 @@ router.post('/check-region', async (req, res) => {
           message: 'Slot reserved'
         });
       } else {
-        console.log('Creating rejected user record (race condition)...');
-        
-        // Save rejected user record
-        const rejectedUser = await User.create({
-          sessionId: `rejected_${prolificId}_${Date.now()}`,
-          userInfo: {
-            prolificId,
-            region: capitalizedRegion, // North, South, East, West, Central
-            age: null,
-            yearsInRegion: 0
-          },
-          status: 'quota_full',
-          rejectionReason: 'Region quota full (race condition)'
-        });
-        
-        console.log('Rejected user created:', rejectedUser._id);
-        
+        console.log('Failed to reserve slot (race condition)...');
         return res.json({ 
           available: false,
           message: 'Region quota full'
         });
       }
     } else {
-      console.log('Creating rejected user record (quota full)...');
-      
-      // Save rejected user record
-      const rejectedUser = await User.create({
-        sessionId: `rejected_${prolificId}_${Date.now()}`,
-        userInfo: {
-          prolificId,
-          region: capitalizedRegion, // North, South, East, West, Central
-          age: null,
-          yearsInRegion: 0
-        },
-        status: 'quota_full',
-        rejectionReason: 'Region quota full'
-      });
-      
-      console.log('Rejected user created:', rejectedUser._id);
-      
+      console.log('Region quota full');
       return res.json({ 
         available: false,
         message: 'Region quota full'
