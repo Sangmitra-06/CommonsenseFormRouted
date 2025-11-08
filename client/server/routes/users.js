@@ -6,9 +6,6 @@ const { v4: uuidv4 } = require('uuid');
 
 const router = express.Router();
 
-// Add this new route to your existing routes/users.js file
-// NEW: Check if Prolific ID already exists (for real-time validation)
-
 // Create new user session
 router.post('/create', [
   body('prolificId').isLength({ min: 24, max: 24 }).withMessage('Prolific ID must be exactly 24 characters')
@@ -28,10 +25,8 @@ router.post('/create', [
 
     const { prolificId, region, age, yearsInRegion } = req.body;
 
-    
-
     const sessionId = uuidv4();
-    const startTime = new Date(); // NEW: Record start time
+    const startTime = new Date();
 
     console.log('Creating user with sessionId:', sessionId);
     console.log('Survey started at:', startTime.toISOString());
@@ -46,7 +41,6 @@ router.post('/create', [
       progress: {
         totalQuestions
       },
-      // NEW: Initialize timing
       timing: {
         startedAt: startTime,
         completedAt: null,
@@ -62,13 +56,11 @@ router.post('/create', [
       sessionId,
       userInfo: savedUser.userInfo,
       totalQuestions,
-      startTime: startTime.toISOString(), // NEW: Send start time to frontend
+      startTime: startTime.toISOString(),
       message: 'User session created successfully' 
     });
   } catch (error) {
     console.error('Error creating user:', error);
-    
-    
     
     if (error.name === 'ValidationError') {
       const validationErrors = Object.values(error.errors).map(err => err.message);
@@ -173,7 +165,7 @@ router.put('/:sessionId/complete', async (req, res) => {
 
     console.log('Marking survey as completed for sessionId:', sessionId, 'Reason:', reason);
 
-    // NEW: Get the user first to calculate timing
+    // Get the user first to calculate timing
     const user = await User.findOne({ sessionId });
     if (!user) {
       return res.status(404).json({ error: 'User session not found' });
@@ -202,7 +194,6 @@ router.put('/:sessionId/complete', async (req, res) => {
       isCompleted: true,
       lastActiveAt: completionTime,
       completedAt: completionTime,
-      // NEW: Update timing fields
       'timing.completedAt': completionTime,
       'timing.totalTimeSeconds': totalTimeSeconds,
       'timing.totalTimeFormatted': formatTime(totalTimeSeconds)
@@ -240,7 +231,7 @@ router.put('/:sessionId/complete', async (req, res) => {
   }
 });
 
-// NEW: Get timing statistics
+// Get timing statistics
 router.get('/admin/timing-stats', async (req, res) => {
   try {
     const completedUsers = await User.find({ 

@@ -26,23 +26,21 @@ const userSchema = new mongoose.Schema({
     },
     age: {
       type: Number,
-      required: false, // Changed to false for rejected users
+      required: false,
       min: 0,
       max: 120
     },
     yearsInRegion: {
       type: Number,
-      required: false, // Changed to false for rejected users
+      required: false,
       min: 0
     }
   },
-  // NEW: Add status field
   status: {
     type: String,
     enum: ['active', 'completed', 'quota_full', 'expired', 'attention_failed'],
     default: 'active'
   },
-  // NEW: Add rejection reason
   rejectionReason: {
     type: String,
     default: null
@@ -102,9 +100,8 @@ const userSchema = new mongoose.Schema({
   timestamps: true
 });
 
-// Index for performance
+// Index for performance (removed prolificId index)
 userSchema.index({ sessionId: 1, lastActiveAt: -1 });
-userSchema.index({ 'userInfo.prolificId': 1 });
 
 // Update lastActiveAt on save
 userSchema.pre('save', function(next) {

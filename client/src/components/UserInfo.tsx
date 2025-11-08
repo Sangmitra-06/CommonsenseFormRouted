@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { UserInfo, UserInfoErrors, REGIONS } from '../types/index.ts';
 import { checkRegionAvailability as checkRegionAPI } from '../services/api.ts';
-import RegionQuotaFullPage from './RegionQutaFullPage.tsx'; // Add this import
+import RegionQuotaFullPage from './RegionQutaFullPage.tsx';
 import axios from 'axios';
 
 interface UserInfoProps {
@@ -17,10 +17,6 @@ export default function UserInfoForm({ onSubmit, isLoading }: UserInfoProps) {
     yearsInRegion: 0
   });
   const [errors, setErrors] = useState<UserInfoErrors>({});
-  
-  // NEW: State for Prolific ID checking
-  const [isCheckingProlificId, setIsCheckingProlificId] = useState(false);
-  const [prolificIdCheckComplete, setProlificIdCheckComplete] = useState(false);
 
   const [showQuotaFull, setShowQuotaFull] = useState(false);
 
@@ -69,30 +65,30 @@ export default function UserInfoForm({ onSubmit, isLoading }: UserInfoProps) {
   };
 
   const checkRegionAvailability = async (selectedRegion: string): Promise<boolean> => {
-  setIsCheckingRegion(true);
-  setRegionError('');
+    setIsCheckingRegion(true);
+    setRegionError('');
 
-  try {
-    // Pass both region AND prolificId
-    const response = await checkRegionAPI(selectedRegion, formData.prolificId);
+    try {
+      // Pass both region AND prolificId
+      const response = await checkRegionAPI(selectedRegion, formData.prolificId);
 
-    if (response.available) {
-      sessionStorage.setItem('userRegion', selectedRegion);
-      sessionStorage.setItem('regionSlotReserved', 'true');
-      return true;
-    } else {
-      // Show quota full page
-      setShowQuotaFull(true);
+      if (response.available) {
+        sessionStorage.setItem('userRegion', selectedRegion);
+        sessionStorage.setItem('regionSlotReserved', 'true');
+        return true;
+      } else {
+        // Show quota full page
+        setShowQuotaFull(true);
+        return false;
+      }
+    } catch (error) {
+      console.error('Error checking region availability:', error);
+      setRegionError('An error occurred checking region availability. Please try again.');
       return false;
+    } finally {
+      setIsCheckingRegion(false);
     }
-  } catch (error) {
-    console.error('Error checking region availability:', error);
-    setRegionError('An error occurred checking region availability. Please try again.');
-    return false;
-  } finally {
-    setIsCheckingRegion(false);
-  }
-};
+  };
 
   // Modify handleSubmit to include region check
   const handleSubmit = async (e: React.FormEvent) => {
@@ -113,29 +109,25 @@ export default function UserInfoForm({ onSubmit, isLoading }: UserInfoProps) {
     }
   };
 
-  // UPDATED: Check if form is valid (now includes Prolific ID existence check)
+  // Check if form is valid
   const isFormValid = Object.keys(errors).length === 0 && 
                      formData.prolificId.length === 24 && 
                      formData.region && 
                      formData.age && 
                      formData.yearsInRegion >= 0 &&
-                     prolificIdCheckComplete &&
-                     !regionError; // Must have completed the check
+                     !regionError;
   
                      
   const handleProlificIdChange = (id: string) => {
-  setFormData(prev => ({ ...prev, prolificId: id }));
+    setFormData(prev => ({ ...prev, prolificId: id }));
 
-  // Clear any existing error when user starts typing again
-  if (errors.prolificId) {
-    setErrors(prev => ({ ...prev, prolificId: undefined }));
-  }
+    // Clear any existing error when user starts typing again
+    if (errors.prolificId) {
+      setErrors(prev => ({ ...prev, prolificId: undefined }));
+    }
+  };
 
-  // Reset checking states
-  setProlificIdCheckComplete(false);
-};
-
-if (showQuotaFull) {
+  if (showQuotaFull) {
     return <RegionQuotaFullPage />;
   }
 
@@ -152,7 +144,7 @@ if (showQuotaFull) {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-8">
-          {/* Prolific ID - TOP PRIORITY */}
+          {/* Prolific ID */}
           <div>
             <label className="block text-lg font-semibold text-custom-dark-brown mb-2">
               Prolific ID <span className="text-red-500">*</span>
@@ -169,7 +161,7 @@ if (showQuotaFull) {
                 className={`w-full px-4 py-3 text-lg rounded-lg border-2 transition-all duration-200 font-mono pr-12
                   ${errors.prolificId 
                     ? 'border-red-500 focus:ring-red-500 focus:border-red-500' 
-                    : formData.prolificId.length === 24 && prolificIdCheckComplete 
+                    : formData.prolificId.length === 24
                       ? 'border-green-500 focus:ring-green-500 focus:border-green-500'
                       : 'border-custom-blue-gray focus:ring-custom-olive focus:border-custom-olive'
                   } focus:ring-2`}
@@ -180,7 +172,7 @@ if (showQuotaFull) {
                 }}
               />
               
-              {/* NEW: Status indicator */}
+              {/* Status indicator */}
               <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
                 {formData.prolificId.length === 24 && !errors.prolificId && (
                   <span className="text-green-500 text-xl">✅</span>
@@ -188,23 +180,11 @@ if (showQuotaFull) {
               </div>
             </div>
             
-            {/* NEW: Status messages */}
-            {/* AFTER - CORRECT: span inside p */}
-            {isCheckingProlificId && formData.prolificId.length === 24 && (
-              <p className="text-custom-olive text-sm mt-2 flex items-center">
-                <span className="animate-spin rounded-full h-4 w-4 border-b-2 border-custom-olive mr-2 inline-block"></span>
-                Checking ID availability...
-              </p>
-            )}
-            
-            
-            
             {errors.prolificId && (
               <p className="text-red-600 text-sm mt-2 flex items-center">
                 ⚠️ {errors.prolificId}
               </p>
             )}
-            
           </div>
 
           {/* Region Selection */}
@@ -240,7 +220,6 @@ if (showQuotaFull) {
             {errors.region && (
               <p className="mt-2 text-sm text-red-600">{errors.region}</p>
             )}
-            {/* NEW: Display region error if exists */}
             {regionError && (
               <p className="mt-2 text-sm text-red-600">{regionError}</p>
             )}
@@ -301,56 +280,44 @@ if (showQuotaFull) {
             </p>
           </div>
 
-          {/* Submit button - FIXED */}
-        <div className="pt-6">
-          <button
-            type="submit"
-            disabled={isLoading || !isFormValid}
-            className={`w-full font-bold py-4 px-6 rounded-xl text-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center ${
-              isFormValid && !isLoading && !isCheckingProlificId
-                ? 'text-white transform hover:scale-105'
-                : 'text-gray-500 bg-gray-300 cursor-not-allowed'
-            }`}
-            style={{
-              background: isLoading || !isFormValid 
-                ? '#d1d5db'
-                : 'var(--btn-primary-bg)',
-              backgroundImage: isLoading || !isFormValid 
-                ? 'none'
-                : 'var(--btn-primary-bg)'
-            }}
-            onMouseEnter={(e) => {
-              if (!isLoading && isFormValid  ) {
-                e.currentTarget.style.backgroundImage = 'var(--btn-primary-hover)';
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (!isLoading && isFormValid  ) {
-                e.currentTarget.style.backgroundImage = 'var(--btn-primary-bg)';
-              }
-            }}
-          >
-            {isLoading ? (
-              <>
-                <span className="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-2 inline-block"></span>
-                Creating your session...
-              </>
-            ) : isCheckingProlificId ? (
-              <>
-                <span className="animate-spin rounded-full h-6 w-6 border-b-2 border-gray-400 mr-2 inline-block"></span>
-                Checking ID...
-              </>
-            ) : (
-              'Start Survey'
-            )}
-          </button>
-            
-            {/* NEW: Helpful message when button is disabled due to duplicate ID */}
-            { formData.prolificId.length === 24 && (
-              <p className="text-center text-sm text-red-600 mt-3">
-                Cannot proceed - this Prolific ID has already been used
-              </p>
-            )}
+          {/* Submit button */}
+          <div className="pt-6">
+            <button
+              type="submit"
+              disabled={isLoading || !isFormValid}
+              className={`w-full font-bold py-4 px-6 rounded-xl text-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center ${
+                isFormValid && !isLoading
+                  ? 'text-white transform hover:scale-105'
+                  : 'text-gray-500 bg-gray-300 cursor-not-allowed'
+              }`}
+              style={{
+                background: isLoading || !isFormValid 
+                  ? '#d1d5db'
+                  : 'var(--btn-primary-bg)',
+                backgroundImage: isLoading || !isFormValid 
+                  ? 'none'
+                  : 'var(--btn-primary-bg)'
+              }}
+              onMouseEnter={(e) => {
+                if (!isLoading && isFormValid) {
+                  e.currentTarget.style.backgroundImage = 'var(--btn-primary-hover)';
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!isLoading && isFormValid) {
+                  e.currentTarget.style.backgroundImage = 'var(--btn-primary-bg)';
+                }
+              }}
+            >
+              {isLoading ? (
+                <>
+                  <span className="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-2 inline-block"></span>
+                  Creating your session...
+                </>
+              ) : (
+                'Start Survey'
+              )}
+            </button>
           </div>
         </form>
 
@@ -360,17 +327,4 @@ if (showQuotaFull) {
       </div>
     </div>
   );
-}
-
-// NEW: Debounce utility function
-function debounce<T extends (...args: any[]) => any>(
-  func: T,
-  wait: number
-): (...args: Parameters<T>) => void {
-  let timeout: ReturnType<typeof setTimeout>;
-  
-  return (...args: Parameters<T>) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func.apply(null, args), wait);
-  };
 }
