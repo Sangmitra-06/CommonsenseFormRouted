@@ -8,29 +8,6 @@ const router = express.Router();
 
 // Add this new route to your existing routes/users.js file
 // NEW: Check if Prolific ID already exists (for real-time validation)
-router.get('/check-prolific-id/:prolificId', async (req, res) => {
-  try {
-    const { prolificId } = req.params;
-    
-    // Validate the Prolific ID format
-    if (!prolificId || prolificId.length !== 24 || !/^[a-zA-Z0-9]+$/.test(prolificId)) {
-      return res.status(400).json({ error: 'Invalid Prolific ID format' });
-    }
-    
-    console.log('Checking if Prolific ID exists:', prolificId);
-    
-    // Check if a user with this Prolific ID already exists
-    const existingUser = await User.findOne({ 'userInfo.prolificId': prolificId });
-    
-    const exists = !!existingUser;
-    console.log('Prolific ID check result:', { prolificId, exists });
-    
-    res.json({ exists });
-  } catch (error) {
-    console.error('Error checking Prolific ID:', error);
-    res.status(500).json({ error: 'Failed to check Prolific ID' });
-  }
-});
 
 // Create new user session
 router.post('/create', [
@@ -51,14 +28,7 @@ router.post('/create', [
 
     const { prolificId, region, age, yearsInRegion } = req.body;
 
-    // Check for duplicate Prolific ID
-    const existingUser = await User.findOne({ 'userInfo.prolificId': prolificId });
-    if (existingUser) {
-      console.log('Duplicate Prolific ID detected:', prolificId);
-      return res.status(400).json({ 
-        error: 'This Prolific ID has already been used. Each participant can only complete the survey once.' 
-      });
-    }
+    
 
     const sessionId = uuidv4();
     const startTime = new Date(); // NEW: Record start time
@@ -98,14 +68,7 @@ router.post('/create', [
   } catch (error) {
     console.error('Error creating user:', error);
     
-    if (error.code === 11000) {
-      if (error.keyPattern && error.keyPattern['userInfo.prolificId']) {
-        return res.status(400).json({ 
-          error: 'This Prolific ID has already been used. Each participant can only complete the survey once.' 
-        });
-      }
-      return res.status(400).json({ error: 'Session ID already exists. Please try again.' });
-    }
+    
     
     if (error.name === 'ValidationError') {
       const validationErrors = Object.values(error.errors).map(err => err.message);

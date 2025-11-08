@@ -106,16 +106,6 @@ export const checkHealth = async () => {
   return response.data;
 };
 
-export const checkProlificIdExists = async (prolificId: string) => {
-  try {
-    console.log('Checking if Prolific ID exists:', prolificId);
-    const response = await api.get(`/api/users/check-prolific-id/${prolificId}`);
-    return response.data.exists;
-  } catch (error) {
-    console.error('Failed to check Prolific ID:', error);
-    return false;
-  }
-};
 
 // NEW: Add this function for region quota checking
 export const checkRegionAvailability = async (region: string, prolificId: string) => {

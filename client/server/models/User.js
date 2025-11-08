@@ -104,7 +104,7 @@ const userSchema = new mongoose.Schema({
 
 // Index for performance
 userSchema.index({ sessionId: 1, lastActiveAt: -1 });
-userSchema.index({ 'userInfo.prolificId': 1 }, { unique: true });
+userSchema.index({ 'userInfo.prolificId': 1 });
 
 // Update lastActiveAt on save
 userSchema.pre('save', function(next) {

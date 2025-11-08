@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { UserInfo, UserInfoErrors, REGIONS } from '../types/index.ts';
-import { checkProlificIdExists, checkRegionAvailability as checkRegionAPI } from '../services/api.ts';
+import { checkRegionAvailability as checkRegionAPI } from '../services/api.ts';
 import RegionQuotaFullPage from './RegionQutaFullPage.tsx'; // Add this import
 import axios from 'axios';
 
@@ -20,7 +20,6 @@ export default function UserInfoForm({ onSubmit, isLoading }: UserInfoProps) {
   
   // NEW: State for Prolific ID checking
   const [isCheckingProlificId, setIsCheckingProlificId] = useState(false);
-  const [prolificIdExists, setProlificIdExists] = useState(false);
   const [prolificIdCheckComplete, setProlificIdCheckComplete] = useState(false);
 
   const [showQuotaFull, setShowQuotaFull] = useState(false);
@@ -43,57 +42,6 @@ export default function UserInfoForm({ onSubmit, isLoading }: UserInfoProps) {
     return '';
   };
 
-  // NEW: Debounced function to check if Prolific ID exists
-  const checkProlificIdDebounced = useCallback(
-    debounce(async (id: string) => {
-      if (id.length === 24 && /^[a-zA-Z0-9]+$/.test(id)) {
-        setIsCheckingProlificId(true);
-        try {
-          const exists = await checkProlificIdExists(id);
-          setProlificIdExists(exists);
-          setProlificIdCheckComplete(true);
-          
-          if (exists) {
-            setErrors(prev => ({ 
-              ...prev, 
-              prolificId: 'This Prolific ID has already been used. Please check your ID or contact support if you believe this is an error.' 
-            }));
-          } else {
-            // Clear any existing error if the ID is available
-            setErrors(prev => {
-              const newErrors = { ...prev };
-              if (newErrors.prolificId?.includes('already been used')) {
-                delete newErrors.prolificId;
-              }
-              return newErrors;
-            });
-          }
-        } catch (error) {
-          console.error('Error checking Prolific ID:', error);
-          // On error, we don't block the user but log the issue
-          setProlificIdExists(false);
-          setProlificIdCheckComplete(true);
-        } finally {
-          setIsCheckingProlificId(false);
-        }
-      } else {
-        setProlificIdCheckComplete(false);
-        setProlificIdExists(false);
-      }
-    }, 800), // 800ms delay
-    []
-  );
-
-  // NEW: Effect to check Prolific ID when it changes
-  useEffect(() => {
-    if (formData.prolificId) {
-      setProlificIdCheckComplete(false);
-      checkProlificIdDebounced(formData.prolificId);
-    } else {
-      setProlificIdCheckComplete(false);
-      setProlificIdExists(false);
-    }
-  }, [formData.prolificId, checkProlificIdDebounced]);
 
   const validateForm = (): boolean => {
     const newErrors: UserInfoErrors = {};
@@ -102,9 +50,7 @@ export default function UserInfoForm({ onSubmit, isLoading }: UserInfoProps) {
     const prolificError = validateProlificId(formData.prolificId);
     if (prolificError) {
       newErrors.prolificId = prolificError;
-    } else if (prolificIdExists) {
-      newErrors.prolificId = 'This Prolific ID has already been used. Please check your ID or contact support if you believe this is an error.';
-    }
+    } 
 
     if (!formData.region) {
       newErrors.region = 'Please select your region';
@@ -151,7 +97,7 @@ export default function UserInfoForm({ onSubmit, isLoading }: UserInfoProps) {
   // Modify handleSubmit to include region check
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (validateForm() && !prolificIdExists) {
+    if (validateForm()) {
       const regionAvailable = await checkRegionAvailability(formData.region);
       if (regionAvailable) {
         onSubmit(formData);
@@ -173,7 +119,6 @@ export default function UserInfoForm({ onSubmit, isLoading }: UserInfoProps) {
                      formData.region && 
                      formData.age && 
                      formData.yearsInRegion >= 0 &&
-                     !prolificIdExists &&
                      prolificIdCheckComplete &&
                      !regionError; // Must have completed the check
   
@@ -188,7 +133,6 @@ export default function UserInfoForm({ onSubmit, isLoading }: UserInfoProps) {
 
   // Reset checking states
   setProlificIdCheckComplete(false);
-  setProlificIdExists(false);
 };
 
 if (showQuotaFull) {
@@ -225,7 +169,7 @@ if (showQuotaFull) {
                 className={`w-full px-4 py-3 text-lg rounded-lg border-2 transition-all duration-200 font-mono pr-12
                   ${errors.prolificId 
                     ? 'border-red-500 focus:ring-red-500 focus:border-red-500' 
-                    : formData.prolificId.length === 24 && prolificIdCheckComplete && !prolificIdExists
+                    : formData.prolificId.length === 24 && prolificIdCheckComplete 
                       ? 'border-green-500 focus:ring-green-500 focus:border-green-500'
                       : 'border-custom-blue-gray focus:ring-custom-olive focus:border-custom-olive'
                   } focus:ring-2`}
@@ -238,15 +182,9 @@ if (showQuotaFull) {
               
               {/* NEW: Status indicator */}
               <div className="absolute inset-y-0 right-0 pr-3 flex items-center">
-                {isCheckingProlificId ? (
-                  <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-custom-olive"></div>
-                ) : formData.prolificId.length === 24 && prolificIdCheckComplete ? (
-                  prolificIdExists ? (
-                    <span className="text-red-500 text-xl">❌</span>
-                  ) : (
-                    <span className="text-green-500 text-xl">✅</span>
-                  )
-                ) : null}
+                {formData.prolificId.length === 24 && !errors.prolificId && (
+                  <span className="text-green-500 text-xl">✅</span>
+                )}
               </div>
             </div>
             
@@ -367,27 +305,27 @@ if (showQuotaFull) {
         <div className="pt-6">
           <button
             type="submit"
-            disabled={isLoading || !isFormValid || isCheckingProlificId}
+            disabled={isLoading || !isFormValid}
             className={`w-full font-bold py-4 px-6 rounded-xl text-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center ${
               isFormValid && !isLoading && !isCheckingProlificId
                 ? 'text-white transform hover:scale-105'
                 : 'text-gray-500 bg-gray-300 cursor-not-allowed'
             }`}
             style={{
-              background: isLoading || !isFormValid || isCheckingProlificId
+              background: isLoading || !isFormValid 
                 ? '#d1d5db'
                 : 'var(--btn-primary-bg)',
-              backgroundImage: isLoading || !isFormValid || isCheckingProlificId
+              backgroundImage: isLoading || !isFormValid 
                 ? 'none'
                 : 'var(--btn-primary-bg)'
             }}
             onMouseEnter={(e) => {
-              if (!isLoading && isFormValid && !isCheckingProlificId) {
+              if (!isLoading && isFormValid  ) {
                 e.currentTarget.style.backgroundImage = 'var(--btn-primary-hover)';
               }
             }}
             onMouseLeave={(e) => {
-              if (!isLoading && isFormValid && !isCheckingProlificId) {
+              if (!isLoading && isFormValid  ) {
                 e.currentTarget.style.backgroundImage = 'var(--btn-primary-bg)';
               }
             }}
@@ -408,7 +346,7 @@ if (showQuotaFull) {
           </button>
             
             {/* NEW: Helpful message when button is disabled due to duplicate ID */}
-            {prolificIdExists && formData.prolificId.length === 24 && (
+            { formData.prolificId.length === 24 && (
               <p className="text-center text-sm text-red-600 mt-3">
                 Cannot proceed - this Prolific ID has already been used
               </p>
