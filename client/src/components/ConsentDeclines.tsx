@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
 export default function ConsentDeclined() {
-  const prolificCode = 'CAN5GUUI';
+  const prolificCode = 'CZZKUPS7';
 
   // Prevent refresh/back button
   useEffect(() => {
