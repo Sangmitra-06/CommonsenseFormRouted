@@ -1,28 +1,28 @@
 [
   {
-    "category": "Festivals and Rituals",
+    "category": "Education",
     "subcategories": [
       {
-        "subcategory": "Ritual",
+        "subcategory": "Education system",
         "topics": [
           {
-            "topic": "Pilgrimage Practices",
+            "topic": "Formal Educational Structure",
             "questions": [
-              "In your region, what is the most well-known pilgrimage site?",
-              "In your region, what are the common time(s) of the year that pilgrimages are most commonly undertaken?",
-              "In your region, what types of physical challenges are commonly experienced or expected by pilgrims during their journey?",
-              "In your region, what dietary restrictions are typically followed by pilgrims during the pilgrimage? Please specify the types of food or beverages avoided.",
-              "In your region, what sacred or symbolic items do pilgrims usually bring back from their destination, and how are these used after returning home?",
-              "In your region, are there any cultural or religious restrictions on who is allowed to undertake specific pilgrimages? If so, please specify the restriction and the pilgrimage.",
-              "In your region, what is the typical attire or dress code observed by pilgrims during their journey?",
-              "In your region, what are the cultural expectations for a person after completing a pilgrimage? Please name one or two expected actions or behaviors.",
-              "In your region, do people observe any specific rituals or customs after returning from a pilgrimage? If so, please describe them.",
-              "In your region, what gestures or actions do pilgrims typically perform to express devotion or respect upon reaching the pilgrimage site?",
-              "In your region, how do pilgrims typically travel to pilgrimage sites, and are there any traditional routes or modes of transport associated with the journey?",
-              "In your region, how long does a typical pilgrimage last, and what factors determine the duration?",
-              "In your region, are there any behavioral codes or vows pilgrims are expected to observe during the pilgrimage? If yes, please specify.",
-              "In your region, what types of offerings are commonly carried by pilgrims to present at the pilgrimage site?",
-              "In your region, are there any major festivals or holidays that are directly linked to pilgrimages? If so, please name the event and describe the connection."
+              "In your region, what are the most common school boards that students attend? Please list all major boards.",
+              "In your region, what are the two most commonly taken entrance exams for college or university admissions?",
+              "In your region, how does the medium of instruction differ across various school boards?",
+              "In your region, what are the specific common subject combinations or streams that students need to choose from in high school?",
+              "In your region, what are the popular international school boards, and how commonly are they chosen?",
+              "In your region, what are the major exams taken during the school years, and at what grade levels are they typically held?",
+              "In your region, what grading system is most commonly used in schools (e.g., letter grades, percentages, GPA)?",
+              "In your region, what grading system is typically used in colleges or universities?",
+              "In your region, do students usually remain in the same classroom while teachers rotate, or do they move between classes for different subjects?",
+              "In your region, what range of grades are typically offered within a single school (e.g., pre-primary to Grade 10)? Please be as specific as possible.",
+              "In your region, what are the standard school levels (e.g., pre-primary, primary, middle, secondary) and the grades they include?",
+              "In your region, what types of schools (e.g., government-run, private, religious, or community-based) are most common?",
+              "In your region, what are the common ways schools communicate important announcements or updates to parents? Specify two most common ways.",
+              "In your region, what is the most common structure for dividing the academic year (e.g., semesters, trimesters), if any?",
+              "In your region, what are the typical administrative roles found in schools (e.g., headmaster, principal, coordinator)? Please name 4 most common ones."
             ]
           }
         ]
