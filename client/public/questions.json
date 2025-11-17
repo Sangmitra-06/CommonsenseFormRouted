@@ -1,28 +1,28 @@
 [
   {
-    "category": "Education",
+    "category": "Food processing and consumption",
     "subcategories": [
       {
-        "subcategory": "Education system",
+        "subcategory": "Diet",
         "topics": [
           {
-            "topic": "Attitudes toward Education",
+            "topic": "Seasonal Diet Modifications",
             "questions": [
-              "In your region, what levels of education are typically considered essential for a child to complete?",
-              "In your region, at what age do children usually begin formal education, such as primary or elementary school?",
-              "In your region, at what age are students generally expected to complete formal education?",
-              "In your region, what educational streams or subject areas are generally considered most beneficial for a child’s future?",
-              "In your region, what two types of post-secondary education, such as university, technical training, or apprenticeships, are seen as most useful for jobs?",
-              "In your region, which educational boards or systems (e.g., local, international, private) are considered the most effective or prestigious?",
-              "In your region, how is homeschooling or alternative education viewed—respected, doubted, or growing?",
-              "In your region, what two careers are seen as prestigious, and what education is usually needed for them?",
-              "In your region, what university-level fields of study are most popular or respected?",
-              "In your region, what are the most common types of private tutoring or academic coaching that students use, especially when preparing for important exams?",
-              "In your region, what kinds of scholarships or financial aid are most widely available or commonly used by students pursuing higher education?",
-              "In your region, who are the two most common sources of pressure on students to perform well academically?",
-              "In your region, what are the two most common kinds of academic achievements that are most publicly celebrated or recognized (e.g., high exam scores, scholarships, awards)?",
-              "In your region, how is student success commonly measured, by test scores, class rank, or other forms of evaluation? Name two most common ways.",
-              "In your region, what forms of student discipline are most commonly used in schools (e.g., detention, parent calls, counseling)? Name two most common ones."
+              "What foods are commonly consumed in your region during summer to reduce body heat? Specify at least two most common ones.",
+              "What types of warm or energy-rich foods are typically prepared in winter across your region? Specify at least two most common ones.",
+              "What traditional drinks or beverages are commonly consumed in summer to stay cool? Specify at least two most common ones.",
+              "What kinds of foods are commonly associated with springtime festivals in your region? Specify the most common.",
+              "What kinds of desserts are only prepared during certain seasons? Please specify the dessert and the season it is associated with.",
+              "Which spices or herbs are used seasonally? Specify the common herbs associated with the seasons.",
+              "What types of snacks are commonly prepared at home during the monsoon? Specify at least two most common ones.",
+              "What traditional foods are believed to help with seasonal allergies or throat irritation in your region?",
+              "What types of vegetables are commonly used in everyday meals during the summer? Specify at least two most common.",
+              "What types of vegetables are commonly used in everyday meals during the winter? Specify at least two most common.",
+              "What types of vegetables are commonly used in everyday meals during the monsoon season? Specify at least two most common.",
+              "What types of vegetables are commonly used in everyday meals during the spring season? Specify at least two most common.",
+              "What foods are commonly avoided during the summer because they are considered too heat-inducing? Specify at least two most common.",
+              "What traditional drinks or beverages are commonly consumed in winter? Specify at least two most common ones.",
+              "What traditional drinks or beverages are commonly consumed in the monsoon season? Specify at least two most common ones."
             ]
           }
         ]
