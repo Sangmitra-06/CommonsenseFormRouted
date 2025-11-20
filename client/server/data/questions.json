@@ -1,28 +1,28 @@
 [
   {
-    "category": "Communication",
+    "category": "Food processing and consumption",
     "subcategories": [
       {
-        "subcategory": "Dissemination of News and Information",
+        "subcategory": "Food preparation",
         "topics": [
           {
-            "topic": "Trustworthiness of Information Sources",
+            "topic": "Cultural Recipes and Ingredients",
             "questions": [
-              "In your region, which two TV national news channels are most widely regarded as reliable sources of information?",
-              "In your region, which two TV local news channels are most widely regarded as reliable sources of information?",
-              "In your region, which two newspapers are most trusted for accurate reporting?",
-              "In your region, which newspaper is unique to your region?",
-              "In your region, which magazines are commonly read by school-aged children for general knowledge or news?",
-              "In your region, how does trust in local-language media compare with trust in English-language media? Name one trusted local-language source.",
-              "In your region, what traits or qualities make a news source widely trusted in the community? Mention two common ones.",
-              "In your region, which international news outlets are most often followed for information about the world?",
-              "In your region, which two radio stations are most commonly listened to?",
-              "In your region, which two digital news websites or apps are most commonly visited for reliable daily updates?",
-              "In your region, which two news anchors or journalists are widely regarded as trustworthy public figures?",
-              "In your region, which two social media accounts or pages are widely followed for local news and announcements?",
-              "In your region, what are the two most common platforms used to get real time updates on ongoing sports matches?",
-              "In your region, what is a common source used to track real-time election updates?",
-              "In your region, what are two common magazines people normally subscribe to?"
+              "In your region, how are traditional recipes usually passed down, example through demonstration, oral instruction, or written notes?",
+              "In your region, what food item is considered essential during major religious festivals in your region? Name two major festivals and two associated food items for each.",
+              "In your region, what are two common ingredients used in home-cooked remedies believed to promote healing?",
+              "In your region, what cooking methods are considered traditional or culturally unique, such as cooking in clay pots or over woodfires?",
+              "In your region, what dish is traditionally prepared during harvest festivals, and what are its two main ingredients?",
+              "In your region, what traditional dish is prepared during marriage ceremonies, and what are its most essential ingredients?",
+              "In your region, what are two traditional dishes prepared for childbirth-related rituals, and what are their key ingredients?",
+              "In your region, what are two traditional dishes prepared for new year related rituals, and what are their key ingredients?",
+              "In your region, what is a traditional beverage served during festivals, and what two ingredients define its flavor?",
+              "In your region, what food ceremony is traditionally associated with a major festival? Please name both the ceremony and the festival it belongs to.",
+              "In your region, what is a dish made during fasting days, and what are two ingredients typically used?",
+              "In your region, what is a traditional dish commonly offered as blessed food?",
+              "In your region, what food item or meal is traditionally used to break a religious fast?",
+              "In your region, what is the most common traditional dish prepared by a daughter-in-law when she first cooks for the family after marriage?",
+              "In your region, what dish is traditionally prepared when inaugurating a new kitchen or stove, and what two ingredients are always included?"
             ]
           }
         ]

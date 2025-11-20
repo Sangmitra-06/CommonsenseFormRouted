@@ -46,10 +46,10 @@ export default function CompletionPage({ isAttentionCheckFailure = false }: Comp
     const generateProlificCode = () => {
       if (isAttentionCheckFailure) {
         // Specific code for attention check failures
-        setProlificCode('C18P524D');
+        setProlificCode('C1FSDUHT');
       } else {
         // Success completion code
-        setProlificCode('CMZG876G');
+        setProlificCode('C9J8QU0J');
       }
     };
 
