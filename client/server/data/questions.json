@@ -1,28 +1,28 @@
 [
   {
-    "category": "Interpersonal Relations",
+    "category": "Food processing and consumption",
     "subcategories": [
       {
-        "subcategory": "Etiquette",
+        "subcategory": "Diet",
         "topics": [
           {
-            "topic": "Eating, drinking, and smoking etiquette",
+            "topic": "Staple Food Consumption",
             "questions": [
-              "In your region, what holidays are the two most common holidays during which smoking and drinking are widespread?",
-              "In your region, what are the two most common customs observed before beginning a meal?",
-              "In your region, what is the traditional way to sit when eating a full meal at home?",
-              "In your region, what are the three most common alcohol-and-occasion pairs (e.g., wine at weddings, whisky during festivals)?",
-              "In your region, what are the general practices and expectations regarding tipping when dining at a restaurant?",
-              "In your region, what are the two most common traditional ways of showing respect to elders during shared meals?",
-              "In your region, what are the two most common customs followed immediately after finishing a meal?",
-              "In your region, what are the two most common social occasions where offering a cigarette is expected?",
-              "In your region, what are the two most common alcoholic drinks offered to guests during home gatherings?",
-              "In your region, what are the two most common areas where smoking is considered inappropriate?",
-              "In your region, what is the typical way guests clean their hands after a meal when dining at a restaurant?",
-              "In your region, what are the two most common methods of serving food at weddings or large gatherings (e.g., plated, buffet, communal)?",
-              "In your region, what are the two most common types of food that are considered inappropriate to waste?",
-              "In your region, who are the first two groups served food at formal or ceremonial meals (such as weddings, religious feasts, or community events)?",
-              "In your region, how is rice most commonly eaten—by hand, with a spoon, or using another method?"
+              "In your region, what is the most typical source of dietary protein in everyday meals?",
+              "In your region, which type of bread is most commonly eaten as an accompaniment?",
+              "In your region, what are two most common spices typically added to everyday staple dishes?",
+              "In your region, what type of cooking oil is most commonly used for preparing daily meals?",
+              "In your region, which type of lentil is most frequently used in home-cooked meals?",
+              "In your region, what are two common vegetables eaten alongside staple grains in daily meals?",
+              "In your region, what is the most commonly eaten breakfast dish?",
+              "In your region, what is the most commonly eaten snack alongside tea or coffee?",
+              "In your region, what is most commonly eaten animal protein in your traditional dishes?",
+              "In your region, what is the most common accompaniment served with rice?",
+              "In your region, what is the most commonly used flour in daily cooking?",
+              "In your region, what is the most common drink served with meals at home?",
+              "In your region, what type of rice is most commonly used in everyday meals?",
+              "In your region, what type of millet, if any, is commonly used in daily meals?",
+              "In your region, what type of pickled or fermented food is regularly eaten with meals at home?"
             ]
           }
         ]
