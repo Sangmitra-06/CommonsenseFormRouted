@@ -1,28 +1,58 @@
 [
   {
-    "category": "Traffic and transport behavior",
+    "category": "Education",
     "subcategories": [
       {
-        "subcategory": "Streets and traffic",
+        "subcategory": "Education system",
         "topics": [
           {
-            "topic": "Understanding Local Traffic Regulations",
+            "topic": "Attitudes toward Education",
             "questions": [
-              "In your region, what are the two most common rules followed when yielding to emergency vehicles like ambulances or fire trucks?",
-              "In your region, what do the colors of a standard traffic signal typically indicate, and how do drivers usually respond to each one?",
-              "In your region, which passengers in a car are most commonly expected to wear seatbelts (e.g., driver, front-seat passenger, back-seat passenger)?",
-              "In your region, for which passengers is wearing a helmet mandatory on a scooter or motorcycle?",
-              "In your region, is there a designated spot where pedestrians normally cross the road? If not, specify where and how the pedestrians normally cross the road.",
-              "In your region, what are the two most common ways drivers signal their intention to turn or change lanes?",
-              "In your region, how do drivers typically behave toward pedestrians waiting at zebra crossings?",
-              "In your region, from which side, if any, are vehicles most commonly overtaken?",
-              "In your region, is there usually a separate lane for cyclists? If not, where do cyclists typically ride?",
-              "In your region, during what hours are heavy vehicles typically restricted from entering city roads or residential areas?",
-              "In your region, what are the common consequences for repeated traffic violations, such as fines, license suspension, or point systems?",
-              "In your region, where are cars most commonly parked when not in residential areas, and is there usually a fee for parking in those locations?",
-              "In your region, how common is frequent honking while driving, and in what situations is it typically used?",
-              "In your region, what is the legal minimum age to obtain a driving license?",
-              "In your region, what are two most common rules regarding child safety in vehicles, such as seating position or use of child restraints?"
+              "In your region, what levels of education are typically considered essential for a child to complete?",
+              "In your region, at what age do children usually begin formal education, such as primary or elementary school?",
+              "In your region, at what age are students generally expected to complete formal education?",
+              "In your region, what educational streams or subject areas are generally considered most beneficial for a child’s future?",
+              "In your region, what two types of post-secondary education, such as university, technical training, or apprenticeships, are seen as most useful for jobs?",
+              "In your region, which educational boards or systems (e.g., local, international, private) are considered the most effective or prestigious?",
+              "In your region, how is homeschooling or alternative education viewed—respected, doubted, or growing?",
+              "In your region, what two careers are seen as prestigious, and what education is usually needed for them?",
+              "In your region, what university-level fields of study are most popular or respected?",
+              "In your region, what are the most common types of private tutoring or academic coaching that students use, especially when preparing for important exams?",
+              "In your region, what kinds of scholarships or financial aid are most widely available or commonly used by students pursuing higher education?",
+              "In your region, who are the two most common sources of pressure on students to perform well academically?",
+              "In your region, what are the two most common kinds of academic achievements that are most publicly celebrated or recognized (e.g., high exam scores, scholarships, awards)?",
+              "In your region, how is student success commonly measured, by test scores, class rank, or other forms of evaluation? Name two most common ways.",
+              "In your region, what forms of student discipline are most commonly used in schools (e.g., detention, parent calls, counseling)? Name two most common ones."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "Education",
+    "subcategories": [
+      {
+        "subcategory": "Teachers and Students",
+        "topics": [
+          {
+            "topic": "Norms for Interacting with Teachers",
+            "questions": [
+              "In your region, how are teachers typically greeted or acknowledged when they enter the classroom? Focus on common actions and sayings.",
+              "In your region, what is considered the appropriate way to address a teacher during class? Focus on common titles or phrases used.",
+              "In your region, how do students typically begin a written communication, such as an email, when addressing a teacher?",
+              "In your region, what is the common classroom protocol if a student arrives late and the teacher is already teaching?",
+              "In your region, what is the usual and respectful way for a student to interrupt a teacher during a lesson to ask a question?",
+              "In your region, how are teachers usually addressed by parents or other adults in school settings?",
+              "In your region, what behaviors are commonly considered disrespectful while a teacher is speaking in class?",
+              "In your region, how do students typically respond when a teacher asks a question to the class?",
+              "In your region, what actions do students usually need to request permission from a teacher to do during class time? Name two of the most common examples.",
+              "In your region, how are students expected to respond when a teacher takes attendance?",
+              "In your region, how do students typically address school principals or head teachers, and how does this differ—if at all—from addressing regular teachers?",
+              "In your region, what types of punishments or disciplinary actions are commonly used by teachers when students break classroom rules or misbehave?",
+              "In your region, what is the common expectation regarding students standing or sitting when speaking to a teacher during class?",
+              "In your region, what kinds of classroom tasks or responsibilities are typically assigned by teachers to students (e.g., distributing materials, cleaning the board)?",
+              "In your region, what behaviors are automatically interpreted as rudeness or defiance toward a teacher, even if nothing is said? Please specify two."
             ]
           }
         ]
