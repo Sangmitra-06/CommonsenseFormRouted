@@ -3,36 +3,6 @@
     "category": "Communication",
     "subcategories": [
       {
-        "subcategory": "Gestures & Signs",
-        "topics": [
-          {
-            "topic": "Non-Verbal Expression of Respect or Disrespect",
-            "questions": [
-              "In your region, what is the most common nonverbal gesture used to show respect to elders?",
-              "In your region, what nonverbal actions are considered disrespectful when interacting with elders?",
-              "In your region, what hand gestures are considered offensive or inappropriate in social settings? Please describe two.",
-              "In your region, what are common nonverbal ways to show respect to someone senior in the workplace?",
-              "In your region, what gestures are typically used to show respect to guests upon their arrival?",
-              "In your region, what gestures are commonly used to show respect toward public officials?",
-              "In your region, what are the typical gestures used to show respect to soldiers or members of the military?",
-              "In your region, what gestures or actions are used to show respect for the national flag or anthem?",
-              "In your region, how is nonverbal respect commonly shown to someone giving a public speech or presentation?",
-              "In your region, what is the respectful nonverbal gesture used when ending a conversation with someone older or senior?",
-              "In your region, what is the common nonverbal way to respectfully decline an offer made by someone?",
-              "In your region, what is the usual nonverbal gesture used to excuse oneself?",
-              "In your region, what gesture is typically used to silently invite someone senior to speak or proceed first?",
-              "In your region, what is the nonverbal way of signaling that you are giving full attention to someone while they speak?",
-              "In your region, what is the respectful way to accept money from someone?"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "category": "Communication",
-    "subcategories": [
-      {
         "subcategory": "Dissemination of News and Information",
         "topics": [
           {
@@ -53,6 +23,36 @@
               "In your region, what platform is most commonly used to rent a house or an apartment?",
               "In your region, what platform is most commonly used by families to share informal news about engagements, weddings, or childbirth?",
               "In your region, what is the common platform used to order takeout/food?"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "Communication",
+    "subcategories": [
+      {
+        "subcategory": "Dissemination of News and Information",
+        "topics": [
+          {
+            "topic": "Trustworthiness of Information Sources",
+            "questions": [
+              "In your region, which two TV national news channels are most widely regarded as reliable sources of information?",
+              "In your region, which two TV local news channels are most widely regarded as reliable sources of information?",
+              "In your region, which two newspapers are most trusted for accurate reporting?",
+              "In your region, which newspaper is unique to your region?",
+              "In your region, which magazines are commonly read by school-aged children for general knowledge or news?",
+              "In your region, how does trust in local-language media compare with trust in English-language media? Name one trusted local-language source.",
+              "In your region, what traits or qualities make a news source widely trusted in the community? Mention two common ones.",
+              "In your region, which international news outlets are most often followed for information about the world?",
+              "In your region, which two radio stations are most commonly listened to?",
+              "In your region, which two digital news websites or apps are most commonly visited for reliable daily updates?",
+              "In your region, which two news anchors or journalists are widely regarded as trustworthy public figures?",
+              "In your region, which two social media accounts or pages are widely followed for local news and announcements?",
+              "In your region, what are the two most common platforms used to get real time updates on ongoing sports matches?",
+              "In your region, what is a common source used to track real-time election updates?",
+              "In your region, what are two common magazines people normally subscribe to?"
             ]
           }
         ]
