@@ -1,58 +1,28 @@
 [
   {
-    "category": "Communication",
+    "category": "Clothing and adornment",
     "subcategories": [
       {
-        "subcategory": "Dissemination of News and Information",
+        "subcategory": "Special garments",
         "topics": [
           {
-            "topic": "Navigating the \"Grapevine\"",
+            "topic": "Headgear and Footwear Norms",
             "questions": [
-              "In your region, what two social media platforms are most commonly used to share informal or local news?",
-              "In your region, which two festivals or community gatherings are commonly used to circulate news or community updates?",
-              "In your region, what two digital platforms are most commonly used by schools to share informal updates or announcements with parents or students?",
-              "In your region, what two small businesses or local services are most promoted on social media, and on which platform?",
-              "In your region, what is a digital platform used by religious institutions to share information about religious practices?",
-              "In your region, what is the most common digital platform used by residential groups or housing societies to share informal updates?",
-              "In your region, what digital platform is most commonly used by neighborhood shops or vendors to announce promotions or new stock?",
-              "In your region, what is the most common platform or method used to spread news of local strikes or transportation disruptions?",
-              "In your region, what digital platform is most commonly used to circulate missing person or lost pet notices?",
-              "In your region, what platform is most commonly used to alert residents about nearby construction or roadwork updates?",
-              "In your region, how do residents most commonly find out about potential power of water shortages?",
-              "In your region, what are the two most commonly used platforms for getting informal recommendations about places to visit in a new city or town?",
-              "In your region, what platform is most commonly used to rent a house or an apartment?",
-              "In your region, what platform is most commonly used by families to share informal news about engagements, weddings, or childbirth?",
-              "In your region, what is the common platform used to order takeout/food?"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "category": "Communication",
-    "subcategories": [
-      {
-        "subcategory": "Dissemination of News and Information",
-        "topics": [
-          {
-            "topic": "Trustworthiness of Information Sources",
-            "questions": [
-              "In your region, which two TV national news channels are most widely regarded as reliable sources of information?",
-              "In your region, which two TV local news channels are most widely regarded as reliable sources of information?",
-              "In your region, which two newspapers are most trusted for accurate reporting?",
-              "In your region, which newspaper is unique to your region?",
-              "In your region, which magazines are commonly read by school-aged children for general knowledge or news?",
-              "In your region, how does trust in local-language media compare with trust in English-language media? Name one trusted local-language source.",
-              "In your region, what traits or qualities make a news source widely trusted in the community? Mention two common ones.",
-              "In your region, which international news outlets are most often followed for information about the world?",
-              "In your region, which two radio stations are most commonly listened to?",
-              "In your region, which two digital news websites or apps are most commonly visited for reliable daily updates?",
-              "In your region, which two news anchors or journalists are widely regarded as trustworthy public figures?",
-              "In your region, which two social media accounts or pages are widely followed for local news and announcements?",
-              "In your region, what are the two most common platforms used to get real time updates on ongoing sports matches?",
-              "In your region, what is a common source used to track real-time election updates?",
-              "In your region, what are two common magazines people normally subscribe to?"
+              "In your region, what types of head coverings are traditionally worn by brides during wedding ceremonies that are not part of everyday attire?",
+              "In your region, what types of head coverings are traditionally worn by grooms during wedding ceremonies that are not part of everyday attire?",
+              "In your region, what special types of footwear are typically worn by grooms during wedding ceremonies that differ from everyday footwear?",
+              "In your region, what traditional footwear is commonly worn by brides during wedding ceremonies?",
+              "In your region, what are the common cultural norms regarding footwear when entering religious spaces?",
+              "In your region, what types of head coverings are typically worn by women during funeral ceremonies?",
+              "In your region, what types of head coverings are typically worn by men during funeral ceremonies?",
+              "In your region, what types of headgear are commonly worn during religious festivals by women that are not part of regular daily wear?",
+              "In your region, what types of headgear are commonly worn during religious festivals by men that are not part of regular daily wear?",
+              "In your region, what types of formal footwear are commonly worn by men that are not part of everyday use?",
+              "In your region, what types of formal footwear are commonly worn by women that are not part of everyday use?",
+              "In your region, what materials are commonly preferred for formal footwear for men or women, and how do they differ from materials used in daily footwear?",
+              "In your region, what traditional types of footwear or footgear are associated with cultural performances but not worn in daily life?",
+              "In your region, what types of headgear are commonly worn by religious leaders that are not part of everyday attire?",
+              "In your region, what types of footwear are traditionally handmade or handcrafted and reserved for special occasions or ceremonial use?"
             ]
           }
         ]
