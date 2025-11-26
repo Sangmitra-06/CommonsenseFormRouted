@@ -1,28 +1,28 @@
 [
   {
-    "category": "Clothing and adornment",
+    "category": "Traffic and transport behavior",
     "subcategories": [
       {
-        "subcategory": "Ornament",
+        "subcategory": "Streets and traffic",
         "topics": [
           {
-            "topic": "Occasions for Wearing Specific Ornaments",
+            "topic": "Understanding Local Traffic Regulations",
             "questions": [
-              "In your region, what types of ornaments are traditionally worn by a bride during wedding ceremonies? Name the two most common ones.",
-              "In your region, what types of ornaments are traditionally worn by a groom during wedding ceremonies? Name the two most common ones.",
-              "In your region, what is the most common ornament worn by a woman to indicate marital status?",
-              "In your region, what is the most common ornament worn by a man to indicate marital status?",
-              "In your region, what specific ornaments are traditionally given to a newborn as part of cultural customs? Please name two most common ones.",
-              "In your region, what types of ornaments are typically avoided by women during mourning periods or at funerals? Please name two most common ones.",
-              "In your region, what types of ornaments are typically avoided by men during mourning periods or at funerals? Please name two most common ones.",
-              "In your region, what types of ornaments are commonly avoided by women while travelling or visiting crowded public places? Please name two most common ones.",
-              "In your region, what types of ornaments are commonly avoided by men while travelling or visiting crowded public places? Please name two most common ones.",
-              "In your region, what types of ornaments are traditionally believed to bring good luck or offer protection? Please name two most common ones.",
-              "In your region, what ornaments are commonly worn by women during major religious festivals or celebrations? Please specify two most common ones.",
-              "In your region, what ornaments are commonly worn by men during major religious festivals or celebrations? Please specify two most common ones.",
-              "In your region, what ornaments are commonly worn by women on a daily basis? Please specify two most common ones.",
-              "In your region, what ornaments are commonly worn by men on a daily basis? Please specify two most common ones.",
-              "In your region, what are two most common ornaments worn by the child during its naming ceremony (excluding those gifted to the child)?"
+              "In your region, what are the two most common rules followed when yielding to emergency vehicles like ambulances or fire trucks?",
+              "In your region, what do the colors of a standard traffic signal typically indicate, and how do drivers usually respond to each one?",
+              "In your region, which passengers in a car are most commonly expected to wear seatbelts (e.g., driver, front-seat passenger, back-seat passenger)?",
+              "In your region, for which passengers is wearing a helmet mandatory on a scooter or motorcycle?",
+              "In your region, is there a designated spot where pedestrians normally cross the road? If not, specify where and how the pedestrians normally cross the road.",
+              "In your region, what are the two most common ways drivers signal their intention to turn or change lanes?",
+              "In your region, how do drivers typically behave toward pedestrians waiting at zebra crossings?",
+              "In your region, from which side, if any, are vehicles most commonly overtaken?",
+              "In your region, is there usually a separate lane for cyclists? If not, where do cyclists typically ride?",
+              "In your region, during what hours are heavy vehicles typically restricted from entering city roads or residential areas?",
+              "In your region, what are the common consequences for repeated traffic violations, such as fines, license suspension, or point systems?",
+              "In your region, where are cars most commonly parked when not in residential areas, and is there usually a fee for parking in those locations?",
+              "In your region, how common is frequent honking while driving, and in what situations is it typically used?",
+              "In your region, what is the legal minimum age to obtain a driving license?",
+              "In your region, what are two most common rules regarding child safety in vehicles, such as seating position or use of child restraints?"
             ]
           }
         ]
@@ -30,29 +30,29 @@
     ]
   },
   {
-    "category": "Food processing and consumption",
+    "category": "Clothing and adornment",
     "subcategories": [
       {
-        "subcategory": "Food preparation",
+        "subcategory": "Ornament",
         "topics": [
           {
-            "topic": "Food Preparation Techniques",
+            "topic": "Ornamental Attire and Status Indication",
             "questions": [
-              "In your region, what is the traditional method for making yogurt at home without using store-bought cultures?",
-              "In your region, what is the most traditional way to make ghee from butter or cream at home?",
-              "In your region what are the traditional tools utilized for grinding spices for food preparation?",
-              "In your region, what are the two most common techniques for marinating meat for daily meals?",
-              "In your region, how are pickles typically prepared and stored?",
-              "In your region, how is coconut milk traditionally extracted from fresh coconut?",
-              "In your region, what are the usual steps for cleaning and marinating fish before cooking?",
-              "In your region, how are leafy greens usually washed and prepared for cooking?",
-              "In your region, how is tea most commonly prepared, and what is usually added during the process?",
-              "In your region, how is rice typically prepared before cooking?",
-              "In your region, what traditional methods are used to ferment batter for foods like idli or dosa?",
-              "In your region, how is paneer usually prepared and stored after being made at home?",
-              "In your region, how is oil traditionally extracted from seeds or nuts for home use?",
-              "In your region, what is the most common method used to prepare lentils like dal before cooking?",
-              "In your region what are typical methods used for preserving food for long periods without using a refrigerator?"
+              "In your region, which gemstones or ornamental stones are most commonly associated with wealth or high social rank? Please name two most common ones.",
+              "In your region, which metals are most commonly associated with wealth or high social rank?  Please name two most common ones.",
+              "In your region, what specific ornaments worn by a bride are seen as indicators of her family's social status? Please name two most common ones.",
+              "In your region, what specific ornaments worn by a groom during weddings reflect his family's social status? Please name two most common ones.",
+              "In your region, which ornaments worn by women are commonly seen as symbols of higher social status? Please name two most common ones.",
+              "In your region, which ornaments worn by men are commonly seen as symbols of higher social status? Please name two most common ones.",
+              "In your region, what types of ornaments are commonly passed down through generations as symbols of family heritage or status? Please name two most common ones.",
+              "In your region, which traditional ornaments are widely recognized as symbols of high status within the community? Please name two most common ones.",
+              "In your region, what types of ornaments are typically worn by children from high-status families during special events? Please name two most common ones.",
+              "In your region, what types of head ornaments or hair accessories worn by women are considered markers of higher social class? Please name two most common ones.",
+              "In your region, what types of head ornaments or hair accessories worn by men are considered markers of higher social class? Please name two most common ones.",
+              "In your region, what types of ornaments are typically worn by women during high-status family celebrations other than weddings? Please mention in detail three most common ones.",
+              "In your region, what types of ornaments are typically worn by men during high-status family celebrations other than weddings? Please mention in detail three most common ones.",
+              "In your region, what kinds of ornaments are most often worn in large quantities by women during important social functions? Please specify the most common one.",
+              "In your region, what kinds of ornaments are most often worn in large quantities by men during important social functions? Please specify the most common one."
             ]
           }
         ]
