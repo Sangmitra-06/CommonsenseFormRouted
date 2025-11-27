@@ -1,5 +1,35 @@
 [
   {
+    "category": "Traffic and transport behavior",
+    "subcategories": [
+      {
+        "subcategory": "Streets and traffic",
+        "topics": [
+          {
+            "topic": "Understanding Local Traffic Regulations",
+            "questions": [
+              "In your region, what are the two most common rules followed when yielding to emergency vehicles like ambulances or fire trucks?",
+              "In your region, what do the colors of a standard traffic signal typically indicate, and how do drivers usually respond to each one?",
+              "In your region, which passengers in a car are most commonly expected to wear seatbelts (e.g., driver, front-seat passenger, back-seat passenger)?",
+              "In your region, for which passengers is wearing a helmet mandatory on a scooter or motorcycle?",
+              "In your region, is there a designated spot where pedestrians normally cross the road? If not, specify where and how the pedestrians normally cross the road.",
+              "In your region, what are the two most common ways drivers signal their intention to turn or change lanes?",
+              "In your region, how do drivers typically behave toward pedestrians waiting at zebra crossings?",
+              "In your region, from which side, if any, are vehicles most commonly overtaken?",
+              "In your region, is there usually a separate lane for cyclists? If not, where do cyclists typically ride?",
+              "In your region, during what hours are heavy vehicles typically restricted from entering city roads or residential areas?",
+              "In your region, what are the common consequences for repeated traffic violations, such as fines, license suspension, or point systems?",
+              "In your region, where are cars most commonly parked when not in residential areas, and is there usually a fee for parking in those locations?",
+              "In your region, how common is frequent honking while driving, and in what situations is it typically used?",
+              "In your region, what is the legal minimum age to obtain a driving license?",
+              "In your region, what are two most common rules regarding child safety in vehicles, such as seating position or use of child restraints?"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "category": "Communication",
     "subcategories": [
       {
