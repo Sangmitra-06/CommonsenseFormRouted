@@ -1,58 +1,28 @@
 [
   {
-    "category": "Traffic and transport behavior",
+    "category": "Interpersonal Relations",
     "subcategories": [
       {
-        "subcategory": "Streets and traffic",
+        "subcategory": "Gift giving",
         "topics": [
           {
-            "topic": "Understanding Local Traffic Regulations",
+            "topic": "Gift Giving Etiquette",
             "questions": [
-              "In your region, what are the two most common rules followed when yielding to emergency vehicles like ambulances or fire trucks?",
-              "In your region, what do the colors of a standard traffic signal typically indicate, and how do drivers usually respond to each one?",
-              "In your region, which passengers in a car are most commonly expected to wear seatbelts (e.g., driver, front-seat passenger, back-seat passenger)?",
-              "In your region, for which passengers is wearing a helmet mandatory on a scooter or motorcycle?",
-              "In your region, is there a designated spot where pedestrians normally cross the road? If not, specify where and how the pedestrians normally cross the road.",
-              "In your region, what are the two most common ways drivers signal their intention to turn or change lanes?",
-              "In your region, how do drivers typically behave toward pedestrians waiting at zebra crossings?",
-              "In your region, from which side, if any, are vehicles most commonly overtaken?",
-              "In your region, is there usually a separate lane for cyclists? If not, where do cyclists typically ride?",
-              "In your region, during what hours are heavy vehicles typically restricted from entering city roads or residential areas?",
-              "In your region, what are the common consequences for repeated traffic violations, such as fines, license suspension, or point systems?",
-              "In your region, where are cars most commonly parked when not in residential areas, and is there usually a fee for parking in those locations?",
-              "In your region, how common is frequent honking while driving, and in what situations is it typically used?",
-              "In your region, what is the legal minimum age to obtain a driving license?",
-              "In your region, what are two most common rules regarding child safety in vehicles, such as seating position or use of child restraints?"
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "category": "Communication",
-    "subcategories": [
-      {
-        "subcategory": "Gestures & Signs",
-        "topics": [
-          {
-            "topic": "Social Expression of Emotions",
-            "questions": [
-              "In your region, what is the most common way people express affection without using words?",
-              "In your region, what is the most common way to convey an apology nonverbally?",
-              "In your region, what common gestures or facial expressions show confusion or lack of understanding?",
-              "In your region, what is the most common way sympathy or condolence is expressed without speaking?",
-              "In your region, what common gestures are used to show admiration or praise?",
-              "In your region, how do people most commonly nonverbally express embarrassment or shame?",
-              "In your region, how do people most commonly show nervousness or anxiety through body language?",
-              "In your region, what is the most common way people show pride or accomplishment through gestures or body language?",
-              "In your region, what are the common hand gestures done to ward off evil?",
-              "In your region, how is deep thought shown nonverbally?",
-              "In your region, how do people commonly signal they are full after a meal without speaking?",
-              "In your region, what common gestures indicate a need for help or assistance?",
-              "In your region, how do people commonly indicate they are leaving or saying goodbye?",
-              "In your region, how is surprise or shock commonly shown through gestures?",
-              "In your region, how do people commonly and nonverbally express grief or sadness?"
+              "In your region, are gifts opened in front of the giver or later? Name two occasions when they’re opened right away.",
+              "In your region, what two types of gifts are seen as inappropriate or unlucky?",
+              "In your region, is giving cash as a gift respectful or impersonal? Name two occasions when it’s common and how it’s usually presented, for example, in envelopes, decorated packets, as gift cards, etc.",
+              "In your region, are return gifts expected? Name two occasions when they’re usually given.",
+              "In your region, what two gifts are most common for colleagues or business associates?",
+              "In your region, what colors or numbers are seen as unlucky for gifts? Name the most common ones.",
+              "In your region, what two gifts are believed to bring good luck, and on what occasions are they given?",
+              "In your region, when and how are gifts given to teachers or mentors, and what gifts are most common?",
+              "In your region, how is a gift typically wrapped or presented before it is given?",
+              "In your region, what two materials or wrapping styles are most common for formal or traditional occasions?",
+              "In your region, what colors, patterns, or designs are traditionally used or avoided for gift wrapping?",
+              "In your region, is it polite to ask what someone wants as a gift? On which occasions is this okay or not okay?",
+              "In your region, what two handmade or personalized gifts are most common, and on what occasions are they given?",
+              "In your region, what two types of gifts are most common between couples?",
+              "In your region, what two types of gifts are most common between siblings?"
             ]
           }
         ]
