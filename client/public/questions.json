@@ -1,28 +1,28 @@
 [
   {
-    "category": "Clothing and adornment",
+    "category": "Education",
     "subcategories": [
       {
-        "subcategory": "Ornament",
+        "subcategory": "Education system",
         "topics": [
           {
-            "topic": "Ornamental Attire and Status Indication",
+            "topic": "Formal Educational Structure",
             "questions": [
-              "In your region, which gemstones or ornamental stones are most commonly associated with wealth or high social rank? Please name two most common ones.",
-              "In your region, which metals are most commonly associated with wealth or high social rank?  Please name two most common ones.",
-              "In your region, what specific ornaments worn by a bride are seen as indicators of her family's social status? Please name two most common ones.",
-              "In your region, what specific ornaments worn by a groom during weddings reflect his family's social status? Please name two most common ones.",
-              "In your region, which ornaments worn by women are commonly seen as symbols of higher social status? Please name two most common ones.",
-              "In your region, which ornaments worn by men are commonly seen as symbols of higher social status? Please name two most common ones.",
-              "In your region, what types of ornaments are commonly passed down through generations as symbols of family heritage or status? Please name two most common ones.",
-              "In your region, which traditional ornaments are widely recognized as symbols of high status within the community? Please name two most common ones.",
-              "In your region, what types of ornaments are typically worn by children from high-status families during special events? Please name two most common ones.",
-              "In your region, what types of head ornaments or hair accessories worn by women are considered markers of higher social class? Please name two most common ones.",
-              "In your region, what types of head ornaments or hair accessories worn by men are considered markers of higher social class? Please name two most common ones.",
-              "In your region, what types of ornaments are typically worn by women during high-status family celebrations other than weddings? Please mention in detail three most common ones.",
-              "In your region, what types of ornaments are typically worn by men during high-status family celebrations other than weddings? Please mention in detail three most common ones.",
-              "In your region, what kinds of ornaments are most often worn in large quantities by women during important social functions? Please specify the most common one.",
-              "In your region, what kinds of ornaments are most often worn in large quantities by men during important social functions? Please specify the most common one."
+              "In your region, what are the most common school boards that students attend? Please list all major boards.",
+              "In your region, what are the two most commonly taken entrance exams for college or university admissions?",
+              "In your region, how does the medium of instruction differ across various school boards?",
+              "In your region, what are the specific common subject combinations or streams that students need to choose from in high school?",
+              "In your region, what are the popular international school boards, and how commonly are they chosen?",
+              "In your region, what are the major exams taken during the school years, and at what grade levels are they typically held?",
+              "In your region, what grading system is most commonly used in schools (e.g., letter grades, percentages, GPA)?",
+              "In your region, what grading system is typically used in colleges or universities?",
+              "In your region, do students usually remain in the same classroom while teachers rotate, or do they move between classes for different subjects?",
+              "In your region, what range of grades are typically offered within a single school (e.g., pre-primary to Grade 10)? Please be as specific as possible.",
+              "In your region, what are the standard school levels (e.g., pre-primary, primary, middle, secondary) and the grades they include?",
+              "In your region, what types of schools (e.g., government-run, private, religious, or community-based) are most common?",
+              "In your region, what are the common ways schools communicate important announcements or updates to parents? Specify two most common ways.",
+              "In your region, what is the most common structure for dividing the academic year (e.g., semesters, trimesters), if any?",
+              "In your region, what are the typical administrative roles found in schools (e.g., headmaster, principal, coordinator)? Please name 4 most common ones."
             ]
           }
         ]
